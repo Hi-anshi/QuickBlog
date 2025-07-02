@@ -1,36 +1,36 @@
-
-
-````markdown
 # 🚀 QuickBlog — AI-Powered Blogging Platform
 
-**QuickBlog** is a modern, full-featured blogging platform that combines robust publishing tools with advanced **AI-assisted writing**, **cloud-based media management**, and a sleek, user-friendly interface. It empowers users to create, edit, manage, and share blog posts with ease, while leveraging AI to boost creativity and productivity.
+QuickBlog is a modern, full-featured blogging platform that combines robust publishing tools with advanced AI-assisted writing, cloud-based media management, and a sleek, user-friendly interface. It empowers users to create, edit, manage, and share blog posts with ease, while leveraging AI to boost creativity and productivity.
 
 ---
 
 ## 🌐 Live Demo
 
-https://quick-blog-teal.vercel.app
+[https://quick-blog-teal.vercel.app](https://quick-blog-teal.vercel.app)
 
 ---
 
 ## 📦 Tech Stack
 
-- **Frontend:** React (Vite) + TailwindCSS
-- **Backend:** Node.js + Express + MongoDB
-- **Authentication:** JWT + Cookie Sessions
-- **Image Storage:** [ImageKit.io](https://imagekit.io)
-- **AI Writer:** Google Gemini API
-- **Deployment:** Vercel (frontend & backend)
+- React (Vite)
+- TailwindCSS
+- Node.js
+- Express
+- MongoDB
+- JWT + Cookie Sessions
+- [ImageKit.io](https://imagekit.io)
+- Google Gemini API
+- Vercel (frontend & backend)
 
 ---
 
 ## ⚙️ Requirements
 
-- **Node.js** v16 or higher
-- **npm** or **yarn**
-- **MongoDB Atlas**
-- **ImageKit.io account**
-- **Gemini API key** (from Google AI Studio)
+- Node.js v16 or higher
+- npm or yarn
+- MongoDB Atlas
+- ImageKit.io account
+- Gemini API key (from Google AI Studio)
 
 ---
 
@@ -52,26 +52,21 @@ cd server
 npm install
 ```
 
-#### Create `.env` in `/server`:
+Create `.env` in `/server`:
 
 ```env
 PORT=3000
-
 MONGODB_URI=your_mongodb_uri
-
 GEMINI_API_KEY=your_gemini_api_key
-
-IMAGEKIT_URL_ENDPOINT = 'https://ik.imagekit.io/your_endpoint'
-IMAGEKIT_PUBLIC_KEY = 'your_public_key'
-IMAGEKIT_PRIVATE_KEY = 'your_private_key'
-
-ADMIN_EMAIL = 'admin@example.com'
-ADMIN_PASSWORD = 'your_password'
-
-JWT_SECRET = 'your_jwt_secret'
+IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_endpoint
+IMAGEKIT_PUBLIC_KEY=your_public_key
+IMAGEKIT_PRIVATE_KEY=your_private_key
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=your_password
+JWT_SECRET=your_jwt_secret
 ```
 
-#### Run the Backend:
+Run the Backend:
 
 ```bash
 npm start
@@ -79,20 +74,20 @@ npm start
 
 ---
 
-### 3. Setup the Frontend
+### 3. Setup the Client
 
 ```bash
 cd ../client
 npm install
 ```
 
-#### Create `.env` in `/client`:
+Create `.env` in `/client`:
 
 ```env
-VITE_BACKEND_URL = https://your-backend-deployment-url.com
+VITE_BACKEND_URL=https://your-backend-deployment-url.com
 ```
 
-#### Start the Frontend:
+Start the Client:
 
 ```bash
 npm run dev
@@ -106,67 +101,86 @@ Visit [http://localhost:3000](http://localhost:3000)
 
 | Variable                    | Description                                     |
 | --------------------------- | ----------------------------------------------- |
-| `PORT`                      | Port for backend server (default: 3000)         |
-| `MONGODB_URI`               | MongoDB Atlas connection string                 |
-| `GEMINI_API_KEY`            | Google Gemini API key for AI content generation |
-| `IMAGEKIT_URL_ENDPOINT`     | URL endpoint for ImageKit image hosting         |
-| `IMAGEKIT_PUBLIC_KEY`       | Public API key from ImageKit                    |
-| `IMAGEKIT_PRIVATE_KEY`      | Private API key from ImageKit                   |
-| `ADMIN_EMAIL`               | Admin login email                               |
-| `ADMIN_PASSWORD`            | Admin login password                            |
-| `JWT_SECRET`                | Secret key for signing JWT tokens               |
-| `VITE_BACKEND_URL` (client) | URL of deployed backend for frontend requests   |
+| PORT                        | Port for backend server (default: 3000)         |
+| MONGODB_URI                 | MongoDB Atlas connection string                 |
+| GEMINI_API_KEY              | Google Gemini API key for AI content generation |
+| IMAGEKIT_URL_ENDPOINT       | URL endpoint for ImageKit image hosting         |
+| IMAGEKIT_PUBLIC_KEY         | Public API key from ImageKit                    |
+| IMAGEKIT_PRIVATE_KEY        | Private API key from ImageKit                   |
+| ADMIN_EMAIL                 | Admin login email                               |
+| ADMIN_PASSWORD              | Admin login password                            |
+| JWT_SECRET                  | Secret key for signing JWT tokens               |
+| VITE_BACKEND_URL (client)   | URL of deployed backend for frontend requests   |
 
 ---
+## ✨ Features Overview
 
-## ✨ Features Overview (Detailed)
+- **Blog Management**
+  - Create, edit, and delete blog posts.
+  - Rich text editor supporting Headings, bold, italic, lists, and links with direct image uploads.
+  - Categorize posts with tags.
+  - SEO-friendly URLs for better search engine visibility..
 
-### ✍️ Blog Management
+- **User Authentication**
+  - Secure login and logout.
+  - JWT-based sessions with HTTP-only cookies.
 
-- **Create, Edit, and Delete Posts:** Users can easily compose new blog posts, update existing ones, or remove them as needed. The intuitive editor supports rich formatting and media embedding.
-- **Rich Text Editor with Image Uploads:** The integrated editor allows for bold, italic, headings, lists, links, and direct image uploads via ImageKit, making content creation seamless and visually appealing.
-- **Categorization with Tags:** Organize posts using categories and tags, enabling readers to filter and discover content efficiently.
-- **SEO-Friendly URLs:** Each blog post is assigned a clean, descriptive URL, improving search engine visibility and user experience.
+- **Comment System**
+  - Threaded/nested comments.
+  - Authenticated user-only commenting.
+  - Admins can approve or delete comments to maintain quality.
 
-### 👥 User Authentication
+- **Search & Filter**
+  - Full-text search across blog titles and content.
+  - Filter blogs by category or tags for better discoverability.
 
-- **Register, Login, Logout:** Secure user registration and authentication flows, with password hashing and validation.
-- **JWT & HTTP-Only Cookies:** Sessions are managed securely using JWT tokens stored in HTTP-only cookies, protecting against XSS attacks.
-- **Admin Access:** Special admin accounts can moderate content, manage users, and access additional dashboard features.
+- **AI Content Generation (Gemini)**
+  - Generate complete blog drafts from prompts.
+  - Rephrase and expand text.
+  - Get ideas, outlines, and suggestions.
+  - Integrated "Generate with AI" button inside the editor for seamless workflow.
 
-### 💬 Comment System
+- **Image Upload via ImageKit**
+  - Direct image uploads inside blog posts.
+  - Global CDN delivery for fast image loading.
+  - Automatic resizing and optimization for performance.
 
-- **Threaded Comments:** Readers can engage in discussions with nested replies, fostering community interaction.
-- **Authenticated Commenting:** Only logged-in users can comment, reducing spam and ensuring accountability.
-- **Admin Moderation:** Admins can review, approve, or delete comments to maintain a healthy discussion environment.
+- **Responsive UI**
+  - Fully responsive across devices.
+  - Clean design with dark mode.
 
-### 🔍 Search & Filter
+### 🛠️ Admin Dashboard Features
 
-- **Full-Text Search:** Instantly search posts by title or keywords, helping users find relevant content quickly.
-- **Category & Tag Filters:** Filter posts by category or tag to narrow down topics of interest.
+- **Dashboard Summary Cards**
+  - Total Blogs: Displays number of published blogs.
+  - Total Comments: Shows total comment count.
+  - Drafts: Shows number of draft blogs.
 
-### 🧠 AI Content Generation (Gemini)
+- **Latest Blogs Table**
+  - Lists recent blogs with:
+    - Serial number
+    - Title
+    - Date created/updated
+    - Status (Published/Draft)
+    - Action buttons (Edit, Delete, View)
 
-- **Instant Drafting:** Generate entire blog post drafts from a simple prompt using Google Gemini AI, saving time and sparking creativity.
-- **Rephrasing & Expansion:** Select text and use AI to rephrase, clarify, or expand content for better readability and depth.
-- **Idea Generation:** Get AI-powered topic suggestions, outlines, and inspiration for new posts.
-- **Integrated Editor Tool:** Access AI features directly within the editor via a "Generate with AI" button for a seamless workflow.
+- **Blog Management Actions**
+  - Edit blog content.
+  - Delete blog from the system.
+  - Preview blog as a user.
+  - (Optional) Toggle publish/draft status.
 
-### 🖼 Image Upload via ImageKit
+- **Live Data Fetching**
+  - Fetches data from `/api/admin/dashboard`.
+  - Auto-refreshes dashboard after actions.
 
-- **Direct Image Uploads:** Upload images directly into blog posts, with automatic optimization and CDN delivery for fast loading.
-- **Global CDN:** Images are served quickly worldwide, ensuring a smooth experience for all users.
-- **Automatic Optimization:** Images are automatically resized and compressed for optimal performance.
+- **Responsive UI**
+  - Fully responsive layout for mobile, tablet, and desktop.
+  - Intuitive and clean design with hover effects and icons.
 
-### 📱 Responsive UI
+- **Error Handling**
+  - Toast notifications for API or fetch errors.
 
-- **Mobile, Tablet, Desktop Support:** The interface adapts beautifully to all screen sizes, providing a consistent experience everywhere.
-- **Modern Design & Dark Mode:** Clean, modern aesthetics with optional dark mode for comfortable reading.
-
-### 🛠 Admin Dashboard
-
-- **User & Post Management:** Admins can view all users and posts, delete spam content, or remove problematic users.
-- **Quick Stats Overview:** (Planned) Dashboard will display key metrics like total number of blogs, comments, and drafts.
 
 ---
 
@@ -174,14 +188,18 @@ Visit [http://localhost:3000](http://localhost:3000)
 
 ### Backend (Render/Railway)
 
-1. Deploy `/server`
-2. Add all `.env` variables in Vercel's dashboard
-3. Enable auto-redeploy on push (optional)
+```bash
+# Deploy /server
+# Add all .env variables in Vercel's dashboard
+# Enable auto-redeploy on push (optional)
+```
 
 ### Frontend (Vercel)
 
-1. Deploy `/client`
-2. Add `VITE_BACKEND_URL` in Vercel environment settings
+```bash
+# Deploy /client
+# Add VITE_BACKEND_URL in Vercel environment settings
+```
 
 ---
 
@@ -198,15 +216,19 @@ Password: your_password
 
 We welcome contributions from the community!
 
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature-name`)
-3. Commit changes (`git commit -m "Add feature"`)
-4. Push and submit a PR
+```bash
+# 1. Fork the repo
+# 2. Create a feature branch
+git checkout -b feature-name
+# 3. Commit changes
+git commit -m "Add feature"
+# 4. Push and submit a PR
+```
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the MIT License.
 
 ---
